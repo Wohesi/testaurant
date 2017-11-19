@@ -124,9 +124,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
-
+//    TabLayout.ViewPagerOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+//
+//    })
 
     // Getting Json data and parsing it into an adaptor
     private void loadRecyclerViewData() {
