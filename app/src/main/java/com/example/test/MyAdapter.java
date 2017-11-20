@@ -48,9 +48,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         holder.desc.setText(listItem.getDesc());
         holder.cat.setText(listItem.getCat());
 
-//        Picasso.with(context)
-//                .load(listItem.getImg_url())
-//                .into(holder.image);
+        Picasso.with(context)
+                .load(listItem.getCat())
+                .into(holder.image);
 
         holder.price.setText("Costs :"+" $ "+String.valueOf(listItem.getPrice()));
 
