@@ -20,7 +20,6 @@ public class LikesFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    private Button btnTEST;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

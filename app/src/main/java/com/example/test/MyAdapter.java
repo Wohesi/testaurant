@@ -41,23 +41,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ListItem  listItem = ListItems.get(position);
 
-        holder.name.setText(listItem.getName());
-        holder.desc.setText(listItem.getDesc());
-        //holder.cat.setText(listItem.getCat());
+        holder.title.setText(listItem.getTitle());
+        holder.overview.setText(listItem.getOverview());
+        holder.release_date.setText(listItem.getRelease_date());
 
         Picasso.with(context)
-                .load(listItem.getCat())
-                .into(holder.image);
+                .load("http://image.tmdb.org/t/p/w185/"+listItem.getPoster_path())
+                .into(holder.poster_path);
 
-        holder.price.setText("Costs :"+" $ "+String.valueOf(listItem.getPrice()));
+        holder.vote_average.setText("Rating: "+String.valueOf(listItem.getVote_average()));
 
-//        holder.button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(context, "you added "+listItem.getName(), Toast.LENGTH_LONG).show();
-//
-//            }
-//        }
 
     }
 
@@ -68,28 +61,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView name;
+        public TextView title;
         Typeface cf_bahiana = Typeface.createFromAsset(itemView.getContext().getAssets(),"font/bahiana.otf");
-        public TextView desc;
-        public TextView cat;
-        public TextView price;
-        public ImageView image;
-<<<<<<< HEAD
-=======
-        public Button button;
->>>>>>> origin/master
+
+        public TextView overview;
+        public TextView release_date;
+        public TextView vote_average;
+        public ImageView poster_path;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            name = itemView.findViewById(R.id.name);
-            name.setTypeface(cf_bahiana);
+            title = itemView.findViewById(R.id.title);
+            title.setTypeface(cf_bahiana);
 
-            cat = itemView.findViewById(R.id.category);
-            desc = itemView.findViewById(R.id.description);
-            price = itemView.findViewById(R.id.price);
-            image = itemView.findViewById(R.id.image);
+            release_date = itemView.findViewById(R.id.release_date);
+            overview = itemView.findViewById(R.id.overview);
+            vote_average = itemView.findViewById(R.id.rating);
+            poster_path = itemView.findViewById(R.id.image);
         }
     }
 

@@ -2,43 +2,43 @@ package com.example.test;
 
 public class ListItem {
 
-    private String name;
-    private String desc;
+    private String title;
+    private String overview;
     private int id;
-    private int price;
-    private String img_url;
-    private String cat;
+    private int vote_average;
+    private String poster_path;
+    private String release_date;
 
-    public ListItem(String name, String desc, String img_url, String cat, int id, int price) {
-        this.name = name;
-        this.desc = desc;
-        this.img_url = img_url;
+    public ListItem(String title, String overview,  String release_date, String poster_path, int id, int vote_average) {
+        this.title = title;
+        this.overview = overview;
+        this.poster_path = poster_path;
         this.id = id;
-        this.price = price;
-        this.cat = cat;
+        this.vote_average = vote_average;
+        this.release_date = release_date;
     }
 
-    public String getCat() {
-        return cat;
+    public String getRelease_date() {
+        return release_date;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getOverview() {
+        return overview;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getPrice() {
-        return price;
+    public int getVote_average() {
+        return vote_average;
     }
 
-    public String getImg_url() {
-        return img_url;
+    public String getPoster_path() {
+        return poster_path;
     }
 }

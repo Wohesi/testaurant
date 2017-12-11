@@ -3,12 +3,13 @@ package com.example.test;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,14 +28,15 @@ import java.util.List;
 
 public class MoviesFragment extends Fragment {
 
-
-    // URLS for getting the data
-    String url_menu ="https://resto.mprog.nl/menu";
+    // Movie url:
+    String url = "https://api.themoviedb.org/3/genre/9648/movies?api_key=d62e410d87b8cb0fea0dfa6cadb99429&language=en-US&include_adult=false&sort_by=created_at.asc";
 
     // Setting the adapters & lists for items
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private List<ListItem> listItems;
+    private List<ListItem> movieList;
+
+    ImageButton likeButton;
 
     public MoviesFragment() {
         // Required empty public constructor
@@ -52,12 +54,24 @@ public class MoviesFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.movies_fragment, container, false);
 
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.rv);
+        recyclerView = rootView.findViewById(R.id.rv);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        listItems = new ArrayList<ListItem>();
-        loadRecyclerViewData();
+        movieList = new ArrayList<ListItem>();
+        loadData();
+
+
+        // gives 0 pointer error
+
+//         //check the like button
+//        likeButton = rootView.findViewById(R.id.imageButton);
+//        likeButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getContext(), "You liked this image", Toast.LENGTH_LONG ).show();
+//            }
+//        });
 
         return rootView;
     }
@@ -65,43 +79,38 @@ public class MoviesFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
-
     }
 
     // Getting Json data and parsing it into an adaptor
-    private void loadRecyclerViewData() {
+    private void loadData() {
         StringRequest stringRequest = new StringRequest(
-                Request.Method.GET, url_menu,
+                Request.Method.GET, url,
 
-                // In success this method will be executed
+                // If successful:
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
 
                             JSONObject jsonObject = new JSONObject(response);
-                            JSONArray jsonArray = jsonObject.getJSONArray("items");
+                            JSONArray jsonArray = jsonObject.getJSONArray("results");
 
                             for (int i =0; i<jsonArray.length(); i++) {
-                                JSONObject o = jsonArray.getJSONObject(i);
+                                JSONObject movie = jsonArray.getJSONObject(i);
                                 ListItem item = new ListItem(
-                                        o.getString("name"),
-                                        o.getString("description"),
-                                        o.getString("category"),
-                                        o.getString("image_url"),
-                                        o.getInt("id"),
-                                        o.getInt("price")
+                                        movie.getString("title"),
+                                        movie.getString("overview"),
+                                        movie.getString("release_date"),
+                                        movie.getString("poster_path"),
+                                        movie.getInt("id"),
+                                        movie.getInt("vote_average")
                                 );
-                                listItems.add(item);
+                                movieList.add(item);
 
-                                adapter = new MyAdapter(listItems, getContext());
+                                // Add items to adapter
+                                adapter = new MyAdapter(movieList, getContext());
                                 recyclerView.setAdapter(adapter);
-
                             }
-
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -110,7 +119,7 @@ public class MoviesFragment extends Fragment {
                     }
                 },
 
-                // if it fails an error will be shown.
+                // if it fails
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {

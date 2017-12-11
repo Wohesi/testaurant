@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.test.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,10 +13,10 @@
         android:padding="50dp">
 
         <TextView
-            android:id="@+id/loginText"
+            android:id="@+id/registerText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="Register"
             android:textSize="30dp"
             android:textAlignment="center"
             android:paddingTop="20dp"
@@ -36,7 +37,7 @@
             android:textSize="15dp"
             android:textAlignment="center"/>
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/registerEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -52,7 +53,7 @@
             android:textAlignment="center"
             android:paddingTop="50dp"/>
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/registerPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -61,28 +62,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <Button
-                android:id="@+id/loginButton"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_weight="1"
-                android:text="login"
-                android:backgroundTint="@color/registerButton"/>
 
 
             <Button
                 android:id="@+id/registerButton"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:background="#00000000"
+                android:backgroundTint="@color/registerButton"
                 android:text="Register" />
 
 
         </LinearLayout>
     </LinearLayout>
+
+
 
 </FrameLayout>
