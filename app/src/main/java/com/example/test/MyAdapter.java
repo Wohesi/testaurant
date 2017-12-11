@@ -43,7 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
         holder.name.setText(listItem.getName());
         holder.desc.setText(listItem.getDesc());
-        holder.cat.setText(listItem.getCat());
+        //holder.cat.setText(listItem.getCat());
 
         Picasso.with(context)
                 .load(listItem.getCat())
@@ -74,6 +74,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         public TextView cat;
         public TextView price;
         public ImageView image;
+<<<<<<< HEAD
+=======
+        public Button button;
+>>>>>>> origin/master
 
 
         public ViewHolder(View itemView) {
