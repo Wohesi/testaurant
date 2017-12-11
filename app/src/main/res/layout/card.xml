@@ -16,66 +16,70 @@
         <RelativeLayout
             android:id="@+id/layout"
             android:layout_width="wrap_content"
-            android:layout_height="115dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:orientation="vertical"
-            android:paddingBottom="4dp"
+            android:paddingBottom="7dp"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
             android:paddingTop="4dp">
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
                 android:layout_alignParentLeft="true" />
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/image"
                 android:fontFamily="@font/oleo_script_swash_caps"
                 android:text="Name"
+                android:layout_toRightOf="@+id/image"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/image"
                 android:layout_below="@+id/name"
+                android:layout_toRightOf="@+id/image"
                 android:text="Desc" />
 
             <TextView
                 android:id="@+id/category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/image"
                 android:layout_below="@+id/description"
+                android:layout_toRightOf="@+id/image"
                 android:text="Category" />
 
             <TextView
                 android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/image"
                 android:layout_below="@+id/category"
+                android:layout_toEndOf="@+id/image"
+                android:layout_toRightOf="@+id/image"
+                android:paddingBottom="0dp"
                 android:text="Price" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price"
+                android:layout_centerHorizontal="true"
+                android:background="#00000000"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                card_view:srcCompat="@drawable/ic_favorite_border_black_24dp" />
 
 
         </RelativeLayout>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_below="@+id/price"
-            android:layout_marginTop="130dp"
-            android:paddingTop="10dp"
-            android:text="Add to order" />
 
     </android.support.v7.widget.CardView>
 

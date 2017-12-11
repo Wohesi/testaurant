@@ -17,9 +17,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by Wout on 17-11-2017.
- */
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
@@ -54,13 +51,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
         holder.price.setText("Costs :"+" $ "+String.valueOf(listItem.getPrice()));
 
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, "you added "+listItem.getName(), Toast.LENGTH_LONG).show();
+//        holder.button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(context, "you added "+listItem.getName(), Toast.LENGTH_LONG).show();
+//
+//            }
+//        }
 
-            }
-        });
     }
 
     @Override
@@ -75,10 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         public TextView desc;
         public TextView cat;
         public TextView price;
-
         public ImageView image;
-
-        public Button button;
 
 
         public ViewHolder(View itemView) {
@@ -90,17 +85,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             cat = itemView.findViewById(R.id.category);
             desc = itemView.findViewById(R.id.description);
             price = itemView.findViewById(R.id.price);
-
             image = itemView.findViewById(R.id.image);
-
-            button = itemView.findViewById(R.id.button);
-            //layout = itemView.findViewById(R.id.layout);
-
-
         }
     }
 
 }
-
-//com.example.test.R.id.name
-//        layout/card.xml:24

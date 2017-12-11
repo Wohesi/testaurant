@@ -1,9 +1,5 @@
 package com.example.test;
 
-/**
- * Created by Wout on 17-11-2017.
- */
-
 public class ListItem {
 
     private String name;
