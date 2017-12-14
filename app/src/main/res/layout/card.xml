@@ -78,6 +78,7 @@
                 android:background="#00000000"
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp"
+                android:onClick="like"
                 card_view:srcCompat="@drawable/ic_favorite_border_black_24dp" />
 
 

@@ -8,8 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,8 +34,6 @@ public class MoviesFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private List<ListItem> movieList;
 
-    ImageButton likeButton;
-
     public MoviesFragment() {
         // Required empty public constructor
     }
@@ -60,18 +56,6 @@ public class MoviesFragment extends Fragment {
 
         movieList = new ArrayList<ListItem>();
         loadData();
-
-
-        // gives 0 pointer error
-
-//         //check the like button
-//        likeButton = rootView.findViewById(R.id.imageButton);
-//        likeButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getContext(), "You liked this image", Toast.LENGTH_LONG ).show();
-//            }
-//        });
 
         return rootView;
     }
