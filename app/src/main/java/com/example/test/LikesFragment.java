@@ -43,6 +43,12 @@ public class LikesFragment extends Fragment {
     }
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authStateListener);
+    }
+
     private void setAuthStateListener() {
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
@@ -127,10 +133,5 @@ public class LikesFragment extends Fragment {
     }
 
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(authStateListener);
-    }
 
 }

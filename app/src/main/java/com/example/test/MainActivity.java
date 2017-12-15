@@ -36,6 +36,24 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
+    // Firebase methods
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // user is signed in
+        } else {
+            gotoLoginActivity();
+        }
+    }
+
+    private void gotoLoginActivity() {
+        Intent LoginIntent = new Intent(MainActivity.this, LoginFragment.class);
+        startActivity(LoginIntent);
+    }
+
+
     // On create main function
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,21 +126,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Firebase methods
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // user is signed in
-        } else {
-            gotoLoginActivity();
-        }
-    }
-
-    private void gotoLoginActivity() {
-        Intent LoginIntent = new Intent(MainActivity.this, LoginFragment.class);
-        startActivity(LoginIntent);
-    }
 
 }
