@@ -10,7 +10,7 @@ import java.util.Map;
  * Created by Wout on 14-12-2017.
  */
 
-public class UserLikes implements Serializable {
+public class UserLikes  {
 
     public String movie;
 
@@ -19,13 +19,5 @@ public class UserLikes implements Serializable {
 
     public  UserLikes(String movie) {
         this.movie = movie;
-    }
-
-    @Exclude
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("movie", movie);
-
-        return result;
     }
 }

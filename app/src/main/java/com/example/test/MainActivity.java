@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-
         // Setting up the tabs and toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

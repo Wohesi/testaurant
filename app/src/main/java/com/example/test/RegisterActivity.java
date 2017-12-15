@@ -18,13 +18,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
-
+    // Firebase connection
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    // Set parameters
     private EditText newUserEmail;
     private EditText newUserPass;
-
     private Button register;
 
     @Override
@@ -77,7 +77,6 @@ public class RegisterActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 }
 
-                                // ...
                             }
                         });
             }

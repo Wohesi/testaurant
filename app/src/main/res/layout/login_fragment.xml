@@ -67,10 +67,10 @@
             <Button
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="10dp"
                 android:layout_weight="1"
-                android:text="login"
-                android:backgroundTint="@color/registerButton"/>
+                android:backgroundTint="@color/registerButton"
+                android:text="login" />
 
 
             <Button
